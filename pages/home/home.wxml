@@ -1,0 +1,224 @@
+<!--pages/home/home.wxml-->
+<view>
+
+  <!--mask 登录选择界面-->
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view>
+        <button class='wx_btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <image class='wx_icon' src='../images/weixin.png' mode='aspectFit'></image>
+          微信用户快速登录</button>
+      </view>
+      <view style='text-align:center'>
+        <!-- <label class='login_btn' bindtap='' style='background:red'>输入账号和密码登录</label>  -->
+        <button class='account_btn' bindtap='goLogin'>输入账号和密码登录</button>
+      </view>
+    </view>
+    <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>  -->
+  </view>
+
+  <!--账号和密码登录界面  -->
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showLoginView}}"></view>
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showLoginView}}">
+
+    <!--drawer content-->
+    <view class="login_content">
+      <view class="login_title">登录</view>
+      <view class="top grid">
+        <!-- <label class="title col-0">账号</label> -->
+        <input class="input_base input_h30 col-1 bottom_line" name="rName" placeholder="员工编号／手机号／登录账号" type='text' bindinput="userNameInput" value='{{userName}}'></input>
+      </view>
+      <view class="top grid">
+        <!-- <label class="title col-0">密码</label> -->
+        <input class="input_base input_h30 col-1 bottom_line" name="mobile" placeholder="请输入密码" type='password' bindinput="passWdInput" value='{{userPwd}}'></input>
+      </view>
+      <view style='margin-top:0px'>
+        <button class='login_btn' bindtap='loginbtn'>登录</button>
+      </view>
+    </view>
+
+  </view>
+  <!--微信手机号和验证码登录界面  -->
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showWxView}}"></view>
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showWxView}}">
+
+    <!--drawer content-->
+    <view class="wx_content">
+      <view class="wx_title">该手机号{{phoneNo}}绑定的国安数据账号基本信息为:</view>
+
+
+      <view class='base'>
+        <view class='base-content'>
+          <view class='baseContent'>
+            <view class=' weui-cell__hd'>
+              <label>员工账号:</label>
+            </view>
+            <view class='weui-cell__bd'>
+              <label>{{wx_employeeId}}</label>
+            </view>
+          </view>
+          <view class='baseContent top'>
+            <view class='weui-cell__hd'>
+              <label>员工姓名:</label>
+            </view>
+            <view class='weui-cell__bd'>
+              <label>{{wx_username}}</label>
+            </view>
+          </view>
+          <view class='baseContent top' style='padding-bottom:15rpx'>
+            <view class='weui-cell__hd'>
+              <label>员工职务:</label>
+            </view>
+            <view class='weui-cell__bd'>
+              <label>{{wx_zw}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="top grid valid_view ">
+        <view class='input-l'>
+          <input class="valid_code " name="validCode" placeholder="请输入验证码" placeholder-style='text-align:center' type='text' bindinput="getCode" maxlength='6'></input>
+        </view>
+        <view class='code_view'>
+          <text class="vCodezbtn" bindtap='{{getValidCode}}' style='color:{{color}}; background-color:{{backgroundcolor}}'>{{count!=60?count+'s后重新获取':'获取验证码'}}</text>
+        </view>
+      </view>
+      <view>
+        <button class='login_btn' bindtap='validCodeLogin'>绑定</button>
+      </view>
+    </view>
+
+  </view>
+
+  <!--            title           -->
+  <view class="header">
+    <view class='header_img'>
+      <view class='header_img_view' bindtap='goto_login'>
+        <image src="{{thumb}}" class="thumb"></image>
+        <view>
+          <text class="nickname">{{nickname}}</text>
+        </view>
+      </view>
+      <view class='message_view'>
+
+        <view class='message_view_view' bindtap='goto_message'>
+          <view class='message_4view'>
+          <view class='message_img_view'> <image src="{{src_message}}" class='message_img'></image></view>
+          <view> <text class="message">我的消息</text></view>
+          </view>
+
+        </view>
+        <view class='input_view_view' bindtap='goto_input' wx:if="{{showInput}}">
+          <view class='message_5view'>
+          <view class='message_img_view'> <image src="{{src_input}}" class='input_img'></image></view>
+          <view><text class="input_message">我要填报</text></view>
+            
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class='view1'>
+    <view class='store_view' bindtap='goto_store'>
+      <image src='{{src_store}}' class='store_img'></image>
+      <view>
+        <text class='store_text'>附近门店</text>
+      </view>
+    </view>
+    <view class='guoanxia_view' bindtap='goto_men'>
+      <image src='{{src_men}}' class='store_img'></image>
+      <view>
+        <text class='store_text'>附近国安侠</text>
+      </view>
+    </view>
+    <view class='guoanxia_view' bindtap='goto_shequ'>
+      <image src='{{service_img}}' class='store_img'></image>
+      <view>
+        <text class='store_text'>社区服务介绍</text>
+      </view>
+    </view>
+  </view>
+  <view class='view3'  wx:if="{{showDataTV}}">
+
+    <!-- <view class='view3_view'>
+         <view class='view2_text_view'><text>数据大屏</text></view>
+         <view class='view2_context_view'><text>数据大屏展示详情</text></view>
+      </view>
+      <view class='view3_imgView'>
+         <image src='{{src_tv}}' class='view3_img'></image>
+      </view> -->
+    <view class='left_view' bindtap='goto_tvdata'>
+      <view class='image_view'>
+        <image src='{{src_thing}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+      <view class='detail_text'>数据大屏</view>
+       </view>
+    </view>
+    <view class='right_view' bindtap='goto_dataK'>
+    <view class='image_view'>
+        <image src='{{src_tv}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+      <view class='detail_text'>数据走势图</view>
+       </view>
+    </view>
+
+  </view>
+  <view class='view2' bindtap='goto_thing'>
+    <view class='view2_view'>
+      <view class='view2_text_view'>
+        <text>通知公告</text>
+      </view>
+      <view class='view2_context_view'>
+        <text>暂无最新通知公告</text>
+      </view>
+    </view>
+    <view class='view2_img_view'>
+      <image src='{{notice}}' class='view2_img'></image>
+    </view>
+
+  </view>
+
+  <view class='view4 dataBg_color' bindtap='goto_monthdata'>
+    <view class='view4_view'>
+      <view class='view2_text_view'>
+        <text>数据汇说</text>
+      </view>
+      <view class='view2_context_view'>
+        <text>数据会说话</text>
+      </view>
+    </view>
+    <view class='view2_img_view'>
+      <image src='{{weekdata}}' class='view2_img'></image>
+    </view>
+  </view>
+
+  <view class='view4 moreBg_color' bindtap='goto_more'>
+    <view class='view5_view'>
+      <view class='view2_text_view'>
+        <text>更多</text>
+      </view>
+      <view class='view2_context_view'>
+        <text>更多数据尽在国安数据APP</text>
+      </view>
+    </view>
+    <view class='view_more_view'>
+      <image src='{{moreData}}' class='view_more_img'></image> 
+    </view>
+  </view>
+
+
+</view>

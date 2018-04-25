@@ -1,0 +1,21 @@
+<view class='content'>
+  <view class='box'>
+    <view class='left_view' bindtap='goto_cityValue'>
+      <view class='image_view goalBg_color'>
+        <image src='{{goal_img}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>城市目标址填报</view>
+      </view>
+    </view>
+    <view class='right_view' bindtap='goto_moredata'>
+      <view class='image_view moreBg_color'>
+        <image src='{{more_img}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>更多填报</view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,6 @@
+<!--pages/wait_thing/wait_thing.wxml-->
+<view class='message_view'>
+  <view class='message_context'>
+    <text>暂无通知公告</text>
+  </view>
+</view>

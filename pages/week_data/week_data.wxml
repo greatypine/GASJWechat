@@ -1,0 +1,31 @@
+<view class='content'>
+  <view class='box'>
+    <view class='left_view' bindtap='goto_view1'>
+      <view class='image_view networkBg_color'>
+        <image src='{{network_img}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>线下网络体系周报</view>
+      </view>
+    </view>
+     <view class='right_view' bindtap='goto_view2'>
+      <view class='image_view storeBg_img'>
+        <image src='{{store_img}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>门店运营周报</view>
+      </view>
+    </view>
+  </view>
+<view class='box'>
+    <view class='left_view' bindtap='goto_view3'>
+      <view class='image_view bgData_color'>
+        <image src='{{bigdata_img}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>大数据月报</view>
+      </view>
+    </view>
+  </view>
+  
+</view>

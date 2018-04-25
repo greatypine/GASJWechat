@@ -1,0 +1,30 @@
+<!--pages/city_value/city_value.wxml-->
+<view class='content'>
+  <view class='view1'>
+    <text class='view1_text'>本周勘察商铺数量:</text>
+    <input class='view1_input'></input>
+    <view class='view1_line'></view>
+  </view>
+   <view class='view1'>
+  <text class='view1_text'>本周总部上会通过数量:</text>
+  <input class='view1_input'></input>
+   <view class='view1_line'></view>
+  </view>
+   <view class='view1'>
+  <text class='view1_text'>本周完成签约数量:</text>
+  <input class='view1_input'></input>
+   <view class='view1_line'></view>
+  </view>
+   <view class='view1'>
+  <text class='view1_text'>2018年累计总部上会通过数量:</text>
+  <input class='view1_input'></input>
+   <view class='view1_line'></view>
+  </view>
+   <view class='view1'>
+  <text class='view1_text'>2018年累计完成签约数量:</text>
+  <input class='view1_input'></input>
+   <view class='view1_line'></view>
+  </view>
+
+
+</view>

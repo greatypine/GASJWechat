@@ -1,0 +1,39 @@
+/* pages/more/more.wxss */
+page{height:100%}
+.more_view{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: #EBEFF2;
+}
+.more_title{
+  height:60%;
+  width: 100%;
+
+}
+.more_context{
+  height:40%;
+  width: 100%;
+
+}
+.more_img_view{
+text-align: center
+}
+.more_img{
+  width: 200rpx;
+  height: 200rpx;
+}
+.code_text{
+  text-align: center;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+  
+}
+.more_bg{
+  width: 100%;
+  height: 50%;
+  margin-top: 80rpx;
+}

@@ -1,0 +1,2 @@
+<!--pages/offline_network/offline_network.wxml-->
+<web-view src='{{url}}'></web-view>

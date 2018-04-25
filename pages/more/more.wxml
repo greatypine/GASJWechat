@@ -1,0 +1,14 @@
+<!--pages/more/more.wxml-->
+<view class='more_view'>
+   <view class='more_title'>
+    <image src='{{more_title_img}}' class='more_bg'></image>
+   </view>
+   <view class='more_context'>
+      <view class='more_img_view'>
+      <image src='{{more_img}}' class='more_img' bindtap="previewImage"></image>
+      <view class='code_text'>单击二维码长按保存，可在微信客户端识别下载</view>
+      
+      </view>
+   </view>
+
+</view>

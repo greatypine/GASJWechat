@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/tv_data/tv_data",
+    "pages/personal/personal",
+    "pages/user_message/user_message",
+    "pages/nearby_store/nearby_store",
+    "pages/nearby_men/nearby_men",
+    "pages/more/more",
+    "pages/wait_thing/wait_thing",
+    "pages/input_data/input_data",
+    "pages/week_data/week_data",
+    "pages/data_K/data_K",
+    "pages/city_value/city_value",
+    "pages/offline_network/offline_network",
+    "pages/community_service/community_service",
+    "pages/input_more/input_more",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

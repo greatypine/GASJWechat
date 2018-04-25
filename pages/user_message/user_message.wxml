@@ -1,0 +1,6 @@
+<!--pages/user_message/user_message.wxml-->
+<view class='message_view'>
+  <view class='message_context'>
+    <text>暂无新消息</text>
+  </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/data_K/data_K.wxml-->
+<web-view src='{{url}}'></web-view>

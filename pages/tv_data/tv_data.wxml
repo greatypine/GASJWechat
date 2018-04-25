@@ -1,0 +1,2 @@
+<!--pages/tv_data/tv_data.wxml-->
+<web-view src='{{url}}'></web-view>
