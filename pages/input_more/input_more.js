@@ -12,7 +12,9 @@ Page({
     shareData: '',
     openGid: '',
     showButton: true,
-    userPhone: ''
+    userPhone: '',
+    usercount:'',
+    
 
   },
   onShareAppMessage: function () {
@@ -131,6 +133,13 @@ Page({
     var that = this;
     that.setData({
       userPhone: e.detail.value
+    })
+  },
+  //获取用户输入的用户名
+  userCountInput: function (e) {
+    var that = this;
+    that.setData({
+      usercount: e.detail.value
     })
   }
 

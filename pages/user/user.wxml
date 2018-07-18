@@ -1,19 +1,24 @@
 <!--pages/user/user.wxml-->
+<!--pages/input_more/input_more.wxml-->
 <view class='content'>
   <view class='view1'>
     <text class='view1_text'>标题:</text>
-    <input class='view1_input'></input>
+    <input class='view1_input' bindinput="userNameInput">{{userName}}</input>
   </view>
   <view class='view1'>
     <text class='view1_text'>电话:</text>
-    <input class='view1_input'></input>
+    <input class='view1_input' bindinput="userPhoneInput">{{userphone}}</input>
+  </view>
+   <view class='view1'>
+    <text class='view1_text'>内容:</text>
+    <input class='view1_input' bindinput="userCountInput">{{usercount}}</input>
   </view>
   
    <view class='view1'>
-     <button class='button' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确定</button>
+     <button class='button'>确定</button>
   </view>
   
-
 </view>
+
 
 

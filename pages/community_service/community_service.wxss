@@ -16,5 +16,5 @@ page{height:100%}
 .service_img{
   padding-top: 200rpx;
   height:50%;
-   width: 100%;
+  width: 100%;
 }

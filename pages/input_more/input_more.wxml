@@ -8,9 +8,13 @@
     <text class='view1_text'>电话:</text>
     <input class='view1_input' bindinput="userPhoneInput">{{userphone}}</input>
   </view>
+   <view class='view1'>
+    <text class='view1_text'>内容:</text>
+    <input class='view1_input view1_input1' bindinput="userCountInput">{{usercount}}</input>
+  </view>
   
    <view class='view1'>
-     <button class='button'>提交</button>
+     <button class='button'>确定</button>
   </view>
   
 </view>
