@@ -103,16 +103,21 @@
   <view class="header">
     <view class='header_img'>
       <view class='header_img_view' bindtap='goto_login'>
-        <image src="{{thumb}}" class="thumb"></image>
+        <!-- <image src="{{thumb}}" class="thumb"> -->
+        <open-data type="userAvatarUrl" class="thumb"></open-data>
+        <!-- </image> -->
         <view>
-          <text class="nickname">{{nickname}}</text>
+         <open-data type="userNickName" class="nickname"></open-data>
+          <!-- <text class="nickname">{{nickname}}</text> -->
         </view>
       </view>
       <view class='message_view'>
 
         <view class='message_view_view' bindtap='goto_message'>
           <view class='message_4view'>
-          <view class='message_img_view'> <image src="{{src_message}}" class='message_img'></image></view>
+          <view class='message_img_view'> <image src="{{src_message}}" class='message_img'></image>
+          <text class='unMessage' wx:if="{{unMessageCount==0?false:true}}">{{unMessageCount}}</text>
+          </view>
           <view> <text class="message">我的消息</text></view>
           </view>
 
@@ -151,14 +156,6 @@
     </view>
   </view>
   <view class='view3'  wx:if="{{showDataTV}}">
-
-    <!-- <view class='view3_view'>
-         <view class='view2_text_view'><text>数据大屏</text></view>
-         <view class='view2_context_view'><text>数据大屏展示详情</text></view>
-      </view>
-      <view class='view3_imgView'>
-         <image src='{{src_tv}}' class='view3_img'></image>
-      </view> -->
     <view class='left_view' bindtap='goto_tvdata'>
       <view class='image_view'>
         <image src='{{src_thing}}' class='image_style'></image>
@@ -177,13 +174,33 @@
     </view>
 
   </view>
-  <view class='view2' bindtap='goto_thing'>
+  <view class='view3'  wx:if="{{showDataTV}}">
+    <view class='left_view' bindtap='goto_tvlive'>
+      <view class='image_view'>
+        <image src='{{src_zbj}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+      <view class='detail_text'>数据直播间</view>
+       </view>
+    </view>
+    <view class='right_view' bindtap='goto_cooperative'>
+    <view class='image_view'>
+        <image src='{{src_hzs}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+      <view class='detail_text'>安心合作社</view>
+       </view>
+    </view>
+
+  </view>
+  <view class='view2' bindtap='goto_notices'>
     <view class='view2_view'>
       <view class='view2_text_view'>
         <text>通知公告</text>
       </view>
       <view class='view2_context_view'>
-        <text>暂无最新通知公告</text>
+        <!-- <text>暂无最新通知公告</text> -->
+         <text>你有 <text style='color:red;font-size:30rpx'>{{unNoticeCount}}</text> 条未读公告</text>
       </view>
     </view>
     <view class='view2_img_view'>

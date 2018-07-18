@@ -15,7 +15,12 @@
     "pages/offline_network/offline_network",
     "pages/community_service/community_service",
     "pages/input_more/input_more",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/notices/notices",
+    "pages/message_detail/message_detail",
+    "pages/notices_detail/notices_detail",
+    "pages/data_live/data_live",
+    "pages/cooperative/cooperative"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,3 @@
-// pages/offline_network/offline_network.js
 const openIdUrl = require('./../../config').testpath;
 const app = getApp();
 Page({
@@ -7,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: openIdUrl + 'crm/index_city_net.html?su=984c0eca5f5e22325d1308dd9a762ed0',
+    url: openIdUrl + 'crm/518.html?su=984c0eca5f5e22325d1308dd9a762ed0',
     shareData: {
       title: '国安数据微服务',
       desc: '国安数据微服务',
-      path: '/pages/home/home'
+      path: ''
     }
 
 
@@ -43,7 +42,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('onShow线下网络体系周报');
+    console.log('onShow数据直播间');
     this.onLoad();
 
 

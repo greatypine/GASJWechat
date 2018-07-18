@@ -21,6 +21,8 @@ Page({
     moreData: "../images/icon2.png",
     notice: "../images/icon3.png",
     service_img: "../images/icon_bg.png",
+    src_hzs:"../images/hzs.jpeg",
+    src_zbj:"../images/zbj.jpeg",
     showModalStatus: app.globalData.login_statu,
     showLoginView: false,
     showWxView: false,
@@ -37,6 +39,8 @@ Page({
     wx_username: "--",
     wx_zw: "--",
     user_id: '',
+    unNoticeCount:"0",
+    unMessageCount:"",
     shareData: {
       title: '国安数据微服务',
       desc: '国安数据微服务',
@@ -110,19 +114,25 @@ Page({
       url: '../wait_thing/wait_thing'
     })
   },
+  // 跳转到待处理事项页面
+  goto_notices: function () {
+    wx.navigateTo({
+      url: '../notices/notices'
+    })
+  },
   // 跳转到更多服务页面
   goto_more: function () {
     wx.navigateTo({
       url: '../more/more'
     })
   },
-  // 跳转到数据大屏页面
-  goto_tvdata: function () {
+  // 跳转到数据直播间
+  goto_tvlive: function () {
     if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
 
       if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
         wx.navigateTo({
-          url: '../tv_data/tv_data'
+          url: '../data_live/data_live'
         })
 
       } else {
@@ -145,6 +155,41 @@ Page({
 
     }
 
+  },
+  // 跳转到安心合作社
+  goto_cooperative:function(){
+    // wx.showToast({
+    //   title: '敬请期待...',
+    //   icon: 'none',
+    //   duration: 2000,
+    //   mask: true
+    // })
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+        wx.navigateTo({
+          url: '../cooperative/cooperative'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
   },
   // 跳转到数据走势图
   goto_dataK: function () {
@@ -176,6 +221,37 @@ Page({
     }
 
   },
+  // 跳转到数据大屏页面
+  goto_tvdata: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+        wx.navigateTo({
+          url: '../tv_data/tv_data'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
+  },
+
   // 判断是否弹出登录框
   goto_login: function () {
     if (app.globalData.code == null) {
@@ -193,7 +269,7 @@ Page({
   },
 
   onLoad() {
-    this.getuser();
+    // this.getuser();
  
   },
   onShow: function (options) {
@@ -373,7 +449,24 @@ Page({
 
       }
     });
+    wx.getStorage({
+      key: 'isLogin',
+      success: function (res) {
+        app.globalData.isLogin = res.data;
 
+      }
+    });
+    if (app.globalData.employeeId!=null){
+      console.log(app.globalData.employeeId +"onshow员工号不为空");
+     that.getNoticeCount();
+     that.getMessageCount();
+   }else{
+      console.log(app.globalData.employeeId + "onshow员工号为空");
+     that.setData({
+       unNoticeCount: "0",
+       unMessageCount: "",
+     })
+   }
     
 
   },
@@ -549,7 +642,7 @@ Page({
         },
         success: function (res) {
           var jsonData = JSON.parse(res.data.data);
-
+          console.log("已经绑定直接登录"+JSON.stringify(jsonData));
           var code = jsonData.code
           var message = jsonData.message;
          
@@ -564,17 +657,31 @@ Page({
               key: 'employee',
               data: jsonData
             });
-
+            wx.setStorage({
+              key: 'isLogin',
+              data: 'isLogin'
+            });
             app.globalData.code = code;
             app.globalData.employeeId = jsonData.data.employeeId;
             app.globalData.name = jsonData.data.name;
             app.globalData.zw_code = jsonData.data.usergroupname;
             app.globalData.zw = jsonData.data.zw;
             app.globalData.login_statu = false;
-
-
+            app.globalData.inviteCode = jsonData.data.inviteCode;
+            app.globalData.isLogin="islogin";
             app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 
+            if (app.globalData.employeeId != null) {
+              console.log(app.globalData.employeeId + "微信登录员工号不为空");
+              that.getNoticeCount();
+              that.getMessageCount();
+            } else {
+              console.log(app.globalData.employeeId + "微信登录员工号为空");
+              that.setData({
+                unNoticeCount: "0",
+                unMessageCount: "",
+              })
+            }
 
 
 
@@ -719,7 +826,7 @@ Page({
     param.parameters = [JSON.stringify(po)];
     var paramdata = JSON.stringify(param);
 
-
+    console.log(JSON.stringify(paramdata)+"990909090909")
     wx.setStorage({
       key: 'userName',
       data: this.data.userName
@@ -741,7 +848,7 @@ Page({
         var jsonData = JSON.parse(res.data.data);
         var code = jsonData.code
         var message = jsonData.message;
-
+         console.log(JSON.stringify(jsonData)+"111111");
         //返回200登录成功跳转页面
         if (code == 200) {
           var employee = jsonData.user;
@@ -759,6 +866,11 @@ Page({
             key: 'employee',
             data: jsonData
           });
+          wx.setStorage({
+            key: 'isLogin',
+            data: "isLogin"
+          });
+          
           app.globalData.employeeId = employee.employeeId;
           app.globalData.password = employee.password;
           app.globalData.id = employee.id;
@@ -768,9 +880,9 @@ Page({
           app.globalData.name = employee.name;
           app.globalData.zw = employee.zw;
           app.globalData.login_statu = false;
+          app.globalData.inviteCode = employee.inviteCode;
+          app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (employee.mobilephone == null || employee.mobilephone == '' || employee.mobilephone == undefined) ? '--' : employee.mobilephone;
-
-
           if (usergroup.code != null && usergroup.code != '' && usergroup.code != undefined) {
             if (usergroup.code.slice(0, 2) == 'ZB') {
               app.globalData.showDataTV = true;
@@ -784,6 +896,17 @@ Page({
                 showInput: true
               })
             }
+          }
+          if (app.globalData.employeeId != null) {
+            console.log(app.globalData.employeeId + "员工号不为空");
+            that.getNoticeCount();
+            that.getMessageCount();
+          } else {
+            console.log(app.globalData.employeeId + "员工号为空");
+            that.setData({
+              unNoticeCount: "0",
+              unMessageCount: "",
+            })
           }
 
           that.setData({
@@ -929,7 +1052,7 @@ Page({
       },
       success: function (res) {
         var jsonData = JSON.parse(res.data.data);
-
+        console.log("绑定成功"+JSON.stringify(jsonData));
         var code = jsonData.code
         var message = jsonData.message;
         if (code == 200) {
@@ -944,14 +1067,19 @@ Page({
             key: 'employee',
             data: jsonData
           });
-
+          wx.setStorage({
+            key: 'isLogin',
+            data: "isLogin"
+          });
+          
           app.globalData.code = code;
           app.globalData.employeeId = jsonData.data.employeeId;
           app.globalData.name = jsonData.data.name;
           app.globalData.zw_code = jsonData.data.usergroupname;
           app.globalData.zw = jsonData.data.zw;
           app.globalData.login_statu = false;
-
+          app.globalData.inviteCode = jsonData.data.inviteCode;
+          app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 
           if (jsonData.data.usergroupname != null && jsonData.data.usergroupname != '' && jsonData.data.usergroupname != undefined) {
@@ -968,6 +1096,18 @@ Page({
               })
             }
           }
+          if (app.globalData.employeeId != null) {
+            console.log(app.globalData.employeeId + "绑定登录员工号不为空");
+            that.getNoticeCount();
+            that.getMessageCount();
+          } else {
+            console.log(app.globalData.employeeId + "绑定登录员工号为空");
+            that.setData({
+              unNoticeCount: "0",
+              unMessageCount: "",
+            })
+          }
+
 
           that.setData({
             showWxView: false,
@@ -1049,6 +1189,87 @@ Page({
     })
 
 
+  },
+  // 获取公告未读数量
+  getNoticeCount:function(){
+    var that=this;
+    var param = Object();
+    param.managerName = "NoticeReciverManager";
+    param.methodName = "getUnReadNotice";
+    param.parameters = [app.globalData.employeeId];
+    var paramdata = JSON.stringify(param);
+    console.log(paramdata+  "hahahah");
+    wx.request({
+      url: openIdUrl + 'dispatcher.action?',
+      data: "requestString=" + encodeURIComponent(paramdata),
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(JSON.stringify(res.data) +"getNoticeCount000000");
+      //  debugger
+       if(res.data.result==true){
+         var jsonData=res.data.data;
+          that.setData({
+            unNoticeCount:jsonData
+          })
+       }
+       
+      },
+      fail: function (res) {
+        wx.showToast({
+          icon: 'loading',
+          title: '拼死联网中',
+        })
+
+      },
+      complete: function (res) {
+
+      }
+    });
+  },
+  // 获取未读消息总数
+  getMessageCount: function () {
+    var that = this;
+    var param = Object();
+    param.managerName = "MessageNewManager";
+    param.methodName = "getUnReadMessageAmount";
+    var message = Object();
+    message.receiveId = app.globalData.employeeId;
+    param.parameters = [JSON.stringify(message)];
+    var paramdata = JSON.stringify(param);
+    console.log(paramdata);
+    wx.request({
+      url: openIdUrl + 'dispatcher.action?',
+      data: "requestString=" + encodeURIComponent(paramdata),
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(JSON.stringify(res.data) +"getMessageCount");
+        //  debugger
+        if (res.data.result == true) {
+          var jsonData = res.data.data;
+          that.setData({
+            unMessageCount: jsonData
+            
+          })
+        }
+
+      },
+      fail: function (res) {
+        wx.showToast({
+          icon: 'loading',
+          title: '拼死联网中',
+        })
+
+      },
+      complete: function (res) {
+
+      }
+    });
   }
 
 })

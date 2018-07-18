@@ -1,0 +1,8 @@
+<view class="container-body container-gray">
+	<view class="group">
+		<view class="group-header">标题: {{title}}</view>
+		<view class="group-body">
+			<textarea  disabled="disabled">{{content}}</textarea>
+		</view>
+	</view>
+</view>

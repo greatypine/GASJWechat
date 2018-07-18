@@ -1,6 +1,60 @@
-<!--pages/user_message/user_message.wxml-->
-<view class='message_view'>
+
+<!-- <view class='message_view'>
   <view class='message_context'>
     <text>暂无新消息</text>
   </view>
-</view>
+</view> -->
+
+ <!-- <view class="content">
+  <scroll-view  scroll-y="true"  lower-threshold="50" bindscrolltolower="scrollLoading" >
+    <view class="my-reserve-list">
+      <navigator wx:for="{{reservelist}}" wx:key="{{item.id}}" url='../message_detail/message_detail?id={{item.id}}&&title={{item.title}}&&content={{item.content}}'>
+        <view class="my-reserve-item" > 
+          <view class="my-reserve-img">
+            <image src="{{item.imgurl}}" mode="aspectFill"></image>
+          </view>
+          <view class="my-reserve-text">
+           <view class="my-reserve-title">
+              <view class='notice_title'>
+                {{item.title}}
+              </view>
+              <view class='notice_time'>
+                {{item.time}}
+              </view>
+            </view>
+            <view class='notice_content'>
+              {{item.content}}
+            </view>
+          </view>
+     
+            <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view>     
+         </view> 
+      </navigator>
+    </view>
+    	<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+    <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">没有更多数据了</view>
+  </scroll-view>
+</view>  -->
+
+<!-- 重新布局   -->
+<view class="content">
+   <scroll-view  scroll-y='{{scrollY}}' class='msg-list' lower-threshold="50" bindscrolltolower="scrollLoading" >
+       <view wx:for="{{reservelist}}" wx:key="id"  class='msg-item' animation='{{item.wrapAnimation}}'> 
+            <view id='{{item.id}}' class='msg' animation='{{item.animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend' bindtap='openpage' data-title="{{item.title}}" data-content="{{item.content}}" data-isRead="{{item.isRead}}">
+                <image class='header-img' src="{{item.imgurl}}" ></image>
+                <text class='user-name'>{{item.title}}</text>
+                 <text class='msg-time'>{{item.time}}</text>
+                  <text class='message-dian2' wx:if="{{item.isRead==0}}"></text> 
+                <text class='msg-text'>{{item.content}}</text>
+            </view>
+            <view class='msg-menu'>
+                <view id='{{item.id}}' class='menu-delete' bindtap='onDeleteMsgTap' bindlongtap='onDeleteMsgLongtap'>
+                    删除
+                </view>
+            </view>
+       </view>
+       <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">没有更多数据了</view>
+   </scroll-view>
+</view> 

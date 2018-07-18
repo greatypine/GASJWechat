@@ -71,15 +71,24 @@ Page({
     })
   },
   goto_moredata:function(){
-    // wx.showToast({
-    //   title: '更多填报敬请期待...',
-    //   icon: 'none',
-    //   duration: 2000,
-    //   mask: true
-    // })
-    wx.navigateTo({
-      url: '../input_more/input_more'
+    wx.showToast({
+      title: '更多填报敬请期待...',
+      icon: 'none',
+      duration: 2000,
+      mask: true
     })
-
+    // wx.navigateTo({
+    //   url: '../input_more/input_more'
+    // })
+    // wx.navigateToMiniProgram({
+    //   appId: 'wxb240d771bd777f14',
+    //   path: 'pages/home/home',
+    //   extraData: {
+    //   },
+    //   envVersion: 'develop',
+    //   success(res) {
+    //     // 打开成功
+    //   }
+    // })
   }
 })

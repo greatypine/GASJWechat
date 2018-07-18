@@ -10,7 +10,7 @@ var config = {
   // testpath: "https://data.guoanshequ.com/daqWeb/"
   // testpath: "https://datatest.guoanshequ.top/daqWeb/"
   // testpath: "http://10.16.31.242/daqWeb/"
-  // testpath: "http://10.16.31.197:8081/daqWeb/"
+  // testpath: "http://10.16.33.219:8888/daqWeb/"
 };
 
 module.exports = config

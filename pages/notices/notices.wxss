@@ -1,0 +1,131 @@
+
+/* page{height:100%}
+.message_view{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 200rpx;
+  box-sizing: border-box;
+  background: #eeeeee;
+}
+.message_context{
+color:lightgray;
+} */
+
+
+/*--------------------------  */
+.my-reserve-title {
+  color: #333;
+  font-size: 30rpx;
+  width: 100%;
+  height: 50%;
+  display: flex;
+}
+
+.my-reserve-title .notice_title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 65%;
+  display: inline-block;
+}
+
+.my-reserve-title .notice_time {
+  width: 30%;
+  display: inline-block;
+  text-align: right;
+  color: #888;
+  font-size: 25rpx;
+}
+
+.notice_content {
+  color: #888;
+  font-size: 27rpx;
+  height: 50%；;
+  width: 95%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ 
+  display: inline-block;
+}
+
+
+.my-reserve-item {
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  /* position: relative; *//* height: 100rpx;    */
+}
+
+.my-reserve-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.my-reserve-img image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10px;
+}
+
+.my-reserve-text {
+  flex: 1;
+  min-width: 0;
+  margin-left: 20rpx;
+  width: 100%;
+  padding-top: 10rpx;
+}
+
+.content {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+/*小红点  */
+
+.message-dian2 {
+  width: 6px;
+  height: 6px;
+  background-color: #f00;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -30rpx;
+  /* right: 15px; */
+  display:inline-block;
+  
+}
+/*loading style */
+
+.loading {
+  padding: 10rpx;
+  text-align: center;
+   font-size: 30rpx;
+    color: #888;
+}
+
+.loading:before {
+  display: inline-block;
+  margin-right: 5rpx;
+  vertical-align: middle;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  /* background: url(../../images/icon-loading.png) no-repeat;   */
+  background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+
+.loading.complete:before {
+  display: none;
+ 
+}
+
+/* pages/notices/notices.wxss */

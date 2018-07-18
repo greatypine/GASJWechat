@@ -303,10 +303,15 @@ radio {
   height: 120rpx;
   border-radius: 50%;
   margin-top: 50rpx;
+  object-fit: cover;
+  display: block;
+  overflow: hidden;
+  margin-left: 130rpx;
+  margin-bottom: 20rpx;
 }
 
 .nickname {
-  margin-top: 20rpx;
+  margin-top: 0rpx;
 }
 
 .header_img_view {
@@ -328,21 +333,20 @@ radio {
 .message_4view {
   padding-top: 50rpx;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 }
 
 .message_5view {
   padding-top: 10rpx;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 }
 
 .input_view_view {
   height: 50%;
   width: 100%;
-  
 }
 
 .message_img {
@@ -350,17 +354,17 @@ radio {
   height: 100%;
   vertical-align: middle;
 }
-.message_img_view{
+
+.message_img_view {
   width: 60rpx;
   height: 60rpx;
-   vertical-align: middle;
+  vertical-align: middle;
 }
 
 .input_img {
   width: 60rpx;
   height: 60rpx;
   vertical-align: middle;
-  
 }
 
 .message {
@@ -368,11 +372,12 @@ radio {
   font-size: 30rpx;
   vertical-align: middle;
 }
+
 .input_message {
   padding-left: 10rpx;
   font-size: 30rpx;
   vertical-align: middle;
-  color: #888;
+    /* color: #888;   */
 }
 
 .header_context {
@@ -478,7 +483,7 @@ radio {
   margin-left: 5%;
   margin-right: 5%;
   border-radius: 6rpx;
-  background-color: #ECF7EF;
+  background-color: #ecf7ef;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -505,17 +510,17 @@ radio {
 .detail {
   height: 75rpx;
   width: 100%;
- 
-   text-align: center; 
+  text-align: center;
 }
+
 .detail_text {
-   height: 100%;
-  line-height: 100%; 
+  height: 100%;
+  line-height: 100%;
   width: 100%;
   font-size: 30rpx;
-  display:flex;
-justify-content:center;
-align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*-----------  */
@@ -534,10 +539,9 @@ align-items:center;
   /* width: 50%;
   text-align: center;
   padding-top: 50rpx; */
-
   width: 50%;
   height: 200rpx;
-  text-align: center; 
+  text-align: center;
   padding-top: 100rpx;
 }
 
@@ -570,27 +574,44 @@ align-items:center;
   display: flex;
   margin-bottom: 30rpx;
 }
-.dataBg_color{
-background: #ebeff2;
+
+.dataBg_color {
+  background: #ebeff2;
 }
+
 .view5_view {
   width: 50%;
-  color: #617A90;
+  color: #617a90;
 }
-.moreBg_color{
-   /* background: #3F6778;  */
-   background: #B0EBFD; 
+
+.moreBg_color {
+  /* background: #3F6778;  */
+  background: #b0ebfd;
 }
-.view_more_img{
-   height: 100%;  
-   width: 100%;  
-   
+
+.view_more_img {
+  height: 100%;
+  width: 100%;
 }
 
 .view_more_view {
   width: 50%;
   height: 200rpx;
-  text-align: center; 
+  text-align: center;
   padding-top: 100rpx;
-  
+}
+/*消息未读数量红点  */
+.unMessage{
+  position:relative;
+top:-60rpx;
+left:40rpx;
+background:red;
+width:30rpx;
+height:30rpx;
+display:block;
+line-height:30rpx;
+font-size:20rpx;
+border-radius:50%;
+color:white;
+
 }

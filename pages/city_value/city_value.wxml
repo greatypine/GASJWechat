@@ -1,30 +1,63 @@
 <!--pages/city_value/city_value.wxml-->
 <view class='content'>
-  <view class='view1'>
-    <text class='view1_text'>本周勘察商铺数量:</text>
-    <input class='view1_input'></input>
-    <view class='view1_line'></view>
-  </view>
-   <view class='view1'>
-  <text class='view1_text'>本周总部上会通过数量:</text>
-  <input class='view1_input'></input>
-   <view class='view1_line'></view>
-  </view>
-   <view class='view1'>
-  <text class='view1_text'>本周完成签约数量:</text>
-  <input class='view1_input'></input>
-   <view class='view1_line'></view>
-  </view>
-   <view class='view1'>
-  <text class='view1_text'>2018年累计总部上会通过数量:</text>
-  <input class='view1_input'></input>
-   <view class='view1_line'></view>
-  </view>
-   <view class='view1'>
-  <text class='view1_text'>2018年累计完成签约数量:</text>
-  <input class='view1_input'></input>
-   <view class='view1_line'></view>
-  </view>
+  <view class='view'>
+    <view class='text_view'>
+      所选时间区间:
+      <label>{{startTime}}</label><label> ~ </label>  <label>{{endTime}}</label>
+    </view>
 
+  </view>
+  <view class='view'>
+    <view class='left_view'>
+      <view class='view1_time'>统计时间:</view>
+      <view class='view1_select'>
+        <picker bindchange="bindTimeChange" value="{{time_index}}" range="{{timeArray}}">
+          <view>{{timeArray[time_index]}}
+            <text class='dot-bottom'></text> </view>
+        </picker>
+      </view>
+    </view>
+    <view class='right_view'>
+      <view class='view1_time'>城市名称:</view>
+      <view class='view1_select'>
+        <picker bindchange="bindCityChange" value="{{city_index}}" range="{{cityArray}}">
+           <view  class='nn'>
+           {{cityArray[city_index]}}
+            </view>  <text class='dot-bottom2'></text>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class='view1' style="margin-top:30rpx">
+    <text class='view1_text'>勘察商铺数量: <text style='color:red'>*</text> </text>
+    <input class='view1_input'  type="number" bindinput='getCheckNum'></input>
+    <!-- <view class='view1_line'></view> -->
+  </view>
+   <view class='view1'>
+    <text class='view1_text'>完成签约数量:<text style='color:red'>*</text></text>
+    <input class='view1_input'  type="number" bindinput='getFinishNum'></input>
+    <!-- <view class='view1_line'></view> -->
+  </view>
+  <view class='view1'>
+    <text class='view1_text'>总部上会通过数量:<text style='color:red'>*</text></text>
+    <input class='view1_input'   type="number"  bindinput='getPassNum'></input>
+    <!-- <view class='view1_line'></view> -->
+  </view>
+ 
+  <!-- <view class='view1'>
+    <text class='view1_text'>合作店任务目标(2018年):</text>
+    <input class='view1_input'  type="number"  bindinput='getCooperateNum'></input>
+  </view>
+  <view class='view1'>
+    <text class='view1_text'>自营店任务目标(2018年):</text>
+    <input class='view1_input'  type="number"  bindinput='getSelfNum'></input>
+  </view>
+  <view class='view1'>
+    <text class='view1_text'>前置仓任务目标(2018年):</text>
+    <input class='view1_input'  type="number"  bindinput='getPreposition_task'></input>
+  </view> -->
+  <view class='btn-view'>
+    <button bindtap='doSave'> 提交</button>
+  </view>
 
 </view>

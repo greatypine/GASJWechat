@@ -1,0 +1,35 @@
+<!-- <view class='message_view'>
+  <view class='message_context'>
+    <text>暂无公告</text>
+  </view>
+</view> -->
+ <view class="content">
+  <scroll-view scroll-y="true"  lower-threshold="50" bindscrolltolower="scrollLoading">
+    <view class="my-reserve-list" wx:for="{{reservelist}}" wx:key="id">
+        <view class="my-reserve-item" id='{{item.id}}' bindtap='openpage' data-title="{{item.title}}" data-content="{{item.content}}" data-isRead="{{item.isRead}}" data-noticeNo="{{item.noticeNo}}" data-fileName="{{item.fileName}}" data-twoFileName="{{item.fileName2}}" data-threeFileName="{{item.fileName3}}" data-filePath="{{item.filePath}}" data-twofilePath="{{item.filePath2}}" data-threefilePath="{{item.filePath3}}" >
+          <view class="my-reserve-img">
+            <image src="{{item.imgurl}}" mode="aspectFill"></image>
+          </view>
+          <view class="my-reserve-text">
+            <view class="my-reserve-title">
+              <view class='notice_title'>
+                {{item.title}}
+              </view>
+              <view class='notice_time'>
+                {{item.time}}
+              </view>
+            </view>
+            <view class='notice_content'>
+              {{item.content}}
+            </view>
+            <!-- wx:if="{{item.isRead==0}}"  -->
+            <view class='message-dian2' wx:if="{{item.isRead==0}}">
+            </view>
+          </view>
+        </view>
+    </view>
+    <view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+    <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">没有更多数据了</view>
+  </scroll-view>
+</view> 

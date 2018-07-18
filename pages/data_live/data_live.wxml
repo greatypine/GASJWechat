@@ -1,0 +1,2 @@
+<!--pages/data_live/data_live.wxml-->
+<web-view src='{{url}}'></web-view>

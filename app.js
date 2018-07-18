@@ -4,12 +4,17 @@ var AppId = "wxcdd8ef7d3ae06c50";
 //app.js
 const openIdUrl = require('./config').testpath
 App({
+  data:{
+    deviceInfo: {}
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     var that = this;
+    // 获取屏幕大小
+    this.data.deviceInfo = wx.getSystemInfoSync();
     wx.getStorage({
       key: 'login_style',
       success: function (res) {
@@ -136,8 +141,8 @@ App({
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
               },
               success: function (res) {
-                var jsonData = JSON.parse(JSON.parse(res.data.data).toString());
-                console.log(jsonData.session_key + "getkey");
+                var jsonData = JSON.parse(JSON.parse(res.data.data).toString());             
+                console.log(JSON.stringify(res.data)+"11111");
                 var pc = new WXBizDataCrypt(AppId, jsonData.session_key);
                 that.globalData.pc = pc;
                 that.globalData.sessionkey = jsonData.session_key;
@@ -183,27 +188,27 @@ App({
 
    
     // 获取用户信息
-    wx.getSetting({
-      success: res => {
+    // wx.getSetting({
+    //   success: res => {
         
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo;
-              this.globalData.nick_name = res.userInfo.nickName;
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+    //       wx.getUserInfo({
+    //         success: res => {
+    //           // 可以将 res 发送给后台解码出 unionId
+    //           this.globalData.userInfo = res.userInfo;
+    //           this.globalData.nick_name = res.userInfo.nickName;
       
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    }),
+    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+    //           // 所以此处加入 callback 以防止这种情况
+    //           if (this.userInfoReadyCallback) {
+    //             this.userInfoReadyCallback(res)
+    //           }
+    //         }
+    //       })
+    //     }
+    //   }
+    // }),
       // 获取经纬度
       
       wx.getLocation({
@@ -262,8 +267,8 @@ App({
     nick_name:'',
     showDataTV:false,
     showInput:false,
-    
-   
+    inviteCode:null,
+    isLogin:null
    
   }
 

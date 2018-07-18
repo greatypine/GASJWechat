@@ -16,9 +16,30 @@ Page({
     user_name: '--',
     employee_id: '--',
     zw: '--',
-
+    inviteCode:"--"
   
   },
+  copy_btn:function(){
+    let that = this
+    wx.setClipboardData({
+      data: that.data.inviteCode,
+      success() {
+        // that.setData({
+        //   inviteCode: that.data.inviteCode
+        // })
+        console.log('success')
+      }
+    })
+    wx.getClipboardData({
+      success(res) {
+        console.log(res.data)
+        wx.showToast({
+          title: '复制成功',
+        })
+      }
+    })
+  }
+  ,
   exit_logon:function(){
     wx.showModal({
       title: '提示',
@@ -39,8 +60,13 @@ Page({
           app.globalData.login_statu=true;
           app.globalData.showDataTV=false;
           app.globalData.showInput = false;
+          app.globalData.isLogin=null;
           wx.setStorage({
             key: 'login_style',
+            data: ''
+          });
+          wx.setStorage({
+            key: 'isLogin',
             data: ''
           });
           wx.navigateBack({
@@ -65,6 +91,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.inviteCode+"00000")
     var that=this;
     wx.getUserInfo({
       success: function (res) {
@@ -83,7 +110,8 @@ Page({
     that.setData({
       employee_id: (app.globalData.employeeId == null || app.globalData.employeeId == '' || app.globalData.employeeId == undefined) ? '--' : app.globalData.employeeId,
       user_name: (app.globalData.name == null || app.globalData.name == '' || app.globalData.name == undefined) ? '--' : app.globalData.name,
-      zw: (app.globalData.zw == null || app.globalData.zw == '' || app.globalData.zw == undefined) ? '--' : app.globalData.zw
+      zw: (app.globalData.zw == null || app.globalData.zw == '' || app.globalData.zw == undefined) ? '--' : app.globalData.zw,
+      inviteCode: (app.globalData.inviteCode == null || app.globalData.inviteCode == '' || app.globalData.inviteCode == undefined) ? '暂无数据' : app.globalData.inviteCode
     })
   
   },

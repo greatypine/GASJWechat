@@ -1,0 +1,42 @@
+<view class="container-body container-gray">
+<scroll-view scroll-y="true" style='background: #f9f9f9; padding-bottom: 30rpx;'>
+  <view class="group">
+    <view class="group-header">标题:
+          <!-- <view class="group-header"> -->
+        <label style='color:black;font-weight:bold;'>{{title}}</label>
+      <!-- </view> -->
+    </view>
+
+      <!-- <view class='notice-content'>
+      <view class="notice-title">内容:</view>
+       <view class="notice-detail"> 
+         <textarea value="{{content}}" auto-height disabled="disabled" /> 
+       </view> 
+    </view>  -->
+		   <view class="group-body">
+       <textarea value="{{content}}" auto-height disabled="disabled" maxlength="-1"/> 
+    </view>   
+    <view style='display:flex'>
+      <view class="group-header">附件:</view>
+      <!-- <view class="group-header"> -->
+        <label bindtap='downFile1' wx:if="{{showView1}}">{{filename}}</label>
+      <!-- </view> -->
+    </view>
+    <view style='display:flex'>
+      <!-- <view class="group-header" style='margin-left:110rpx'> -->
+        <label bindtap='downFile2' style='margin-left:100rpx' wx:if="{{showView2}}">{{filename2}}</label>
+      <!-- </view> -->
+    </view>
+    <view style='display:flex'>
+      <!-- <view class="group-header" style='margin-left:110rpx'> -->
+        <label bindtap='downFile3' style='margin-left:100rpx' wx:if="{{showView3}}">{{filename3}}</label>
+      <!-- </view> -->
+    </view>
+    <view style='display:flex'>
+      <view class="group-header style">
+        <label wx:if="{{showView4}}">无</label>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>
