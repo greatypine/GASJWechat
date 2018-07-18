@@ -180,7 +180,7 @@
         <image src='{{src_zbj}}' class='image_style'></image>
       </view>
       <view class='detail'>
-      <view class='detail_text'>数据直播间</view>
+      <view class='detail_text'>221专题</view>
        </view>
     </view>
     <view class='right_view' bindtap='goto_cooperative'>

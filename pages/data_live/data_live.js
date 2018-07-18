@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: openIdUrl + 'crm/518.html?su=984c0eca5f5e22325d1308dd9a762ed0',
+    url: openIdUrl + 'crm/221.html?su=984c0eca5f5e22325d1308dd9a762ed0',
     shareData: {
       title: '国安数据微服务',
       desc: '国安数据微服务',
