@@ -266,6 +266,7 @@ App({
     employee_phone:'--',
     nick_name:'',
     showDataTV:false,
+    showDataTV_1: false,
     showInput:false,
     inviteCode:null,
     isLogin:null

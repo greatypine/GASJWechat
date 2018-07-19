@@ -59,6 +59,7 @@ Page({
           app.globalData.employee_phone ='--';
           app.globalData.login_statu=true;
           app.globalData.showDataTV=false;
+          app.globalData.showDataTV_1 = false;
           app.globalData.showInput = false;
           app.globalData.isLogin=null;
           wx.setStorage({

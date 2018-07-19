@@ -22,12 +22,13 @@ Page({
     notice: "../images/icon3.png",
     service_img: "../images/icon_bg.png",
     src_hzs:"../images/hzs.jpeg",
-    src_zbj:"../images/zbj.jpeg",
+    src_zbj:"../images/221bg.jpg",
     showModalStatus: app.globalData.login_statu,
     showLoginView: false,
     showWxView: false,
     showInput: app.globalData.showInput,
     showDataTV: app.globalData.showDataTV,
+    showDataTV_1: app.globalData.showDataTV_1,
     phoneNo: "",
     ValidCode: "",
     userName: '',
@@ -166,7 +167,7 @@ Page({
     // })
     if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
 
-      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
         wx.navigateTo({
           url: '../cooperative/cooperative'
         })
@@ -225,7 +226,7 @@ Page({
   goto_tvdata: function () {
     if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
 
-      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
         wx.navigateTo({
           url: '../tv_data/tv_data'
         })
@@ -367,16 +368,20 @@ Page({
     if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
       if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
         app.globalData.showDataTV = true;
+        app.globalData.showDataTV_1 = true;
 
         that.setData({
-          showDataTV: true
+          showDataTV: true,
+          showDataTV_1: true
         })
       }
       if (app.globalData.zw_code.slice(0, 2) == 'CS') {
         app.globalData.showInput = true;
+        app.globalData.showDataTV_1 = true;
 
         that.setData({
-          showInput: true
+          showInput: true,
+          showDataTV_1: true
         })
       }
     }
@@ -422,6 +427,7 @@ Page({
       showModalStatus: app.globalData.login_statu,
       nickname: (app.globalData.name == null || app.globalData.name == '' || app.globalData.name == undefined) ? app.globalData.nick_name : app.globalData.name,
       showDataTV: app.globalData.showDataTV,
+      showDataTV_1: app.globalData.showDataTV_1,
       showInput: app.globalData.showInput
     })
 
@@ -688,16 +694,20 @@ Page({
             if (jsonData.data.usergroupname != null && jsonData.data.usergroupname != '' && jsonData.data.usergroupname != undefined) {
               if (jsonData.data.usergroupname.slice(0, 2) == 'ZB') {
                 app.globalData.showDataTV=true;
+                app.globalData.showDataTV_1 = true;
 
                 that.setData({
-                  showDataTV: true
+                  showDataTV: true,
+                  showDataTV_1: true
                 })
               }
               if (jsonData.data.usergroupname.slice(0, 2) == 'CS') {
                 app.globalData.showInput = true;
+                app.globalData.showDataTV_1 = true;
 
                 that.setData({
-                  showInput: true
+                  showInput: true,
+                  showDataTV_1: true
                 })
               }
             }
@@ -886,14 +896,18 @@ Page({
           if (usergroup.code != null && usergroup.code != '' && usergroup.code != undefined) {
             if (usergroup.code.slice(0, 2) == 'ZB') {
               app.globalData.showDataTV = true;
+              app.globalData.showDataTV_1 = true;
               that.setData({
-                showDataTV: true
+                showDataTV: true,
+                showDataTV_1: true
               })
             }
             if (usergroup.code.slice(0, 2) == 'CS') {
               app.globalData.showInput = true;
+              app.globalData.showDataTV_1 = true;
               that.setData({
-                showInput: true
+                showInput: true,
+                showDataTV_1: true
               })
             }
           }
@@ -1085,14 +1099,19 @@ Page({
           if (jsonData.data.usergroupname != null && jsonData.data.usergroupname != '' && jsonData.data.usergroupname != undefined) {
             if (jsonData.data.usergroupname.slice(0, 2) == 'ZB') {
               app.globalData.showDataTV = true;
+              app.globalData.showDataTV_1 = true;
               that.setData({
-                showDataTV: true
+                showDataTV: true,
+                showDataTV_1: true
+
               })
             }
             if (jsonData.data.usergroupname.slice(0, 2) == 'CS') {
               app.globalData.showInput = true;
+              app.globalData.showDataTV_1 = true;
               that.setData({
-                showInput: true
+                showInput: true,
+                showDataTV_1: true
               })
             }
           }
