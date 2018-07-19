@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: openIdUrl + 'crm/index_headquarters.html?su=984c0eca5f5e22325d1308dd9a762ed0',
+    url: '',
     shareData: {
       title: '国安数据微服务',
       desc: '国安数据微服务',
@@ -43,6 +43,17 @@ Page({
    */
   onShow: function () {
     console.log('onShow数据大屏');
+    var that=this;
+    var employee = app.globalData.employee;
+    var param = Object();
+    param.code = employee.code;
+    param.employeeId =employee.employeeId;
+    param.password = employee.password;
+    var paramdata = JSON.stringify(param);
+    var cc = encodeURIComponent(paramdata);
+    that.setData({
+      url: openIdUrl + 'crm/index_headquarters.html?su=' + cc
+    })
     this.onLoad();
   },
 
