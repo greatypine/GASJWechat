@@ -667,6 +667,7 @@ Page({
               key: 'isLogin',
               data: 'isLogin'
             });
+            app.globalData.employee = jsonData.data;
             app.globalData.code = code;
             app.globalData.employeeId = jsonData.data.employeeId;
             app.globalData.name = jsonData.data.name;
@@ -1085,7 +1086,7 @@ Page({
             key: 'isLogin',
             data: "isLogin"
           });
-          
+          app.globalData.employee =jsonData.data;
           app.globalData.code = code;
           app.globalData.employeeId = jsonData.data.employeeId;
           app.globalData.name = jsonData.data.name;

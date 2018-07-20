@@ -1,4 +1,5 @@
-const openIdUrl = require('./../../config').testpath;
+var _base64 = require('./../../utils/base64.js');
+const openIdUrl = require('./../../config').testpath
 const app = getApp();
 Page({
 
@@ -50,11 +51,20 @@ Page({
     param.employeeId = employee.employeeId;
     param.password = employee.password;
     var paramdata = JSON.stringify(param);
-    var cc = encodeURIComponent(paramdata);
-    // openIdUrl + 'crm/member_analysis.html?su=984c0eca5f5e22325d1308dd9a762ed0'
-    that.setData({
-      url: openIdUrl + 'crm/member_analysis.html?su=' + cc
-    })
+    var cc = _base64.CusBASE64.encoder(paramdata);
+    console.log(cc);
+    if (app.globalData.zw_code.slice(0, 2) == 'ZB')     {
+      that.setData({
+        url: openIdUrl + 'crm/member_analysis.html?su=' + cc
+      })
+
+    } else if (app.globalData.zw_code.slice(0, 2) == 'CS'){
+      that.setData({
+        url: openIdUrl + 'crm/member_analysis_city.html?su=' + cc
+      })
+
+    }
+   
     this.onLoad();
     // this.onLoad();
 

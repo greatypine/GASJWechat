@@ -1,3 +1,4 @@
+var _base64 = require('./../../utils/base64.js');
 const openIdUrl = require('./../../config').testpath;
 const app = getApp();
 Page({
@@ -6,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: openIdUrl + 'crm/221.html?su=984c0eca5f5e22325d1308dd9a762ed0',
+    url: '',
     shareData: {
       title: '国安数据微服务',
       desc: '国安数据微服务',
@@ -43,6 +44,19 @@ Page({
    */
   onShow: function () {
     console.log('onShow数据直播间');
+    var that = this;
+    var employee = app.globalData.employee;
+    var param = Object();
+    param.code = employee.code;
+    param.employeeId = employee.employeeId;
+    param.password = employee.password;
+    var paramdata = JSON.stringify(param);
+
+
+    var cc = _base64.CusBASE64.encoder(paramdata);
+    that.setData({
+      url: openIdUrl + 'crm/221.html?su=' + cc
+    })
     this.onLoad();
 
 

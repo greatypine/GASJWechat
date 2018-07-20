@@ -1,3 +1,4 @@
+var _base64  = require('./../../utils/base64.js');
 const openIdUrl = require('./../../config').testpath;
 const app = getApp();
 Page({
@@ -50,7 +51,10 @@ Page({
     param.employeeId =employee.employeeId;
     param.password = employee.password;
     var paramdata = JSON.stringify(param);
-    var cc = encodeURIComponent(paramdata);
+  
+    
+    var cc = _base64.CusBASE64.encoder(paramdata);
+    console.log(cc);
     that.setData({
       url: openIdUrl + 'crm/index_headquarters.html?su=' + cc
     })
