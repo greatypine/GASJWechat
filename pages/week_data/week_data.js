@@ -70,7 +70,7 @@ Page({
   goto_view1: function () {
     if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
 
-      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
         wx.navigateTo({
           url: '../offline_network/offline_network'
         })
