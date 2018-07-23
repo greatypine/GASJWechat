@@ -47,7 +47,8 @@ App({
           wx.getStorage({
             key: 'employee',
             success: function (res) {
-
+              console.log("******************"+JSON.stringify(res));
+              that.globalData.employee = res.data.data;
               that.globalData.code = res.data.code;
               that.globalData.employeeId = res.data.data.employeeId;
               that.globalData.name = res.data.data.name;
