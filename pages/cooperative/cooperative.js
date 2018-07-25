@@ -63,6 +63,7 @@ Page({
         url: openIdUrl + 'crm/member_analysis_city.html?su=' + cc
       })
 
+
     }
    
     this.onLoad();
