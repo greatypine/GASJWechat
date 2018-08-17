@@ -1,0 +1,3 @@
+<!--pages/store_lease/store_lease.wxml-->
+<web-view src='{{url}}'></web-view>
+

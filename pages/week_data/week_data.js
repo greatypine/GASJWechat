@@ -8,7 +8,8 @@ Page({
   data: {
     network_img: "../images/icon7.png",
     store_img: "../images/icon4.png",
-    bigdata_img: "../images/icon6.png"
+    bigdata_img: "../images/icon6.png",
+    store_bg: "../images/store_bg.png"
   },
 
   /**
@@ -94,13 +95,7 @@ Page({
       })
 
     }
-    // wx.showToast({
-    //   title: '近期上线敬请期待...',
-    //   icon: 'none',
-    //   duration: 2000,
-    //   mask: true
-    // })
-    
+ 
   },
   // 门店运营周报
   goto_view2: function () {
@@ -121,5 +116,35 @@ Page({
       mask: true
     })
    
+  },
+  //门店租赁
+  goto_view4: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+        wx.navigateTo({
+          url: '../store_lease/store_lease'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
   },
 })
