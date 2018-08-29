@@ -6,9 +6,9 @@
 
 
 var config = {
-  testpath: "https://data.guoanshequ.top/daqWeb/"
+  // testpath: "https://data.guoanshequ.top/daqWeb/"
   // testpath: "https://data.guoanshequ.com/daqWeb/"
-  // testpath: "https://datatest.guoanshequ.top/daqWeb/"
+     testpath: "https://www.guoanshuju.com/daqWeb/"
   // testpath: "http://10.16.31.242/daqWeb/"
   // testpath: "http://10.16.31.103:8080/daqWeb/"
 };

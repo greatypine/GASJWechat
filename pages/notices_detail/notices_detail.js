@@ -168,7 +168,7 @@ Page({
       const downloadTask = wx.downloadFile({
         url: that.data.filePath,
         success: function (res) {
-          var filePath = res.tempFilePath
+          var filePath = res.tempFilePath;
           wx.openDocument({
             filePath: filePath,
             // fileType:

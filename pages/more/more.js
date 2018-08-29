@@ -1,4 +1,5 @@
 // pages/more/more.js
+const openIdUrl = require('./../../config').testpath;
 var app = getApp();  
 Page({
 
@@ -18,11 +19,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    var scene_img = 'https://data.guoanshequ.com/daqWeb/bizbase/images/download_page_info.png' //这里添加图片的地址  
+    var scene_img = openIdUrl+'bizbase/images/download_page_info.png' //这里添加图片的地址    
     that.setData({
       more_img: scene_img
     })
-  
+    console.log(scene_img + "scene_img")
   },
   previewImage: function (e) {
     wx.previewImage({
