@@ -675,6 +675,10 @@ Page({
             app.globalData.zw = jsonData.data.zw;
             app.globalData.login_statu = false;
             app.globalData.inviteCode = jsonData.data.inviteCode;
+            wx.setStorage({
+              key: 'inviteCode',
+              data: jsonData.data.inviteCode,
+            })
             app.globalData.isLogin="islogin";
             app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 
@@ -892,6 +896,10 @@ Page({
           app.globalData.zw = employee.zw;
           app.globalData.login_statu = false;
           app.globalData.inviteCode = employee.inviteCode;
+          wx.setStorage({
+            key: 'inviteCode',
+            data: jsonData.data.inviteCode,
+          })
           app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (employee.mobilephone == null || employee.mobilephone == '' || employee.mobilephone == undefined) ? '--' : employee.mobilephone;
           if (usergroup.code != null && usergroup.code != '' && usergroup.code != undefined) {
@@ -1094,6 +1102,10 @@ Page({
           app.globalData.zw = jsonData.data.zw;
           app.globalData.login_statu = false;
           app.globalData.inviteCode = jsonData.data.inviteCode;
+          wx.setStorage({
+            key: 'inviteCode',
+            data: jsonData.data.inviteCode,
+          })
           app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 

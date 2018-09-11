@@ -70,6 +70,10 @@ Page({
             key: 'isLogin',
             data: ''
           });
+          wx.setStorage({
+            key: 'inviteCode',
+            data: '',
+          })
           wx.navigateBack({
             delta: 2
           })
@@ -92,8 +96,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     console.log(app.globalData.inviteCode+"00000")
-    var that=this;
     wx.getUserInfo({
       success: function (res) {
         that.setData({
@@ -112,7 +116,7 @@ Page({
       employee_id: (app.globalData.employeeId == null || app.globalData.employeeId == '' || app.globalData.employeeId == undefined) ? '--' : app.globalData.employeeId,
       user_name: (app.globalData.name == null || app.globalData.name == '' || app.globalData.name == undefined) ? '--' : app.globalData.name,
       zw: (app.globalData.zw == null || app.globalData.zw == '' || app.globalData.zw == undefined) ? '--' : app.globalData.zw,
-      inviteCode: (app.globalData.inviteCode == null || app.globalData.inviteCode == '' || app.globalData.inviteCode == undefined) ? '暂无数据' : app.globalData.inviteCode
+      inviteCode: (that.data.inviteCode == null || that.data.inviteCode == '' || that.data.inviteCode == undefined) ? '暂无数据' : that.data.inviteCode
     })
   
   },
@@ -128,7 +132,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that=this;
+    wx.getStorage({
+      key: 'inviteCode',
+      success: function (res) {
+        that.setData({
+          inviteCode: res.data
+        })
+      },
+    })
   },
 
   /**
