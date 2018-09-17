@@ -21,7 +21,9 @@
     "pages/notices_detail/notices_detail",
     "pages/data_live/data_live",
     "pages/cooperative/cooperative",
-    "pages/store_lease/store_lease"
+    "pages/store_lease/store_lease",
+    "pages/youyi_product/youyi_product",
+    "pages/gax_working_load/gax_working_load"
   ],
   "window": {
     "backgroundTextStyle": "light",

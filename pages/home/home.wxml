@@ -171,7 +171,19 @@
         <view class='detail_text'>数据大屏</view>
       </view>
     </view>
-    <view class='right_view' bindtap='goto_cooperative'>
+  
+    <view class='right_view' bindtap='goto_monthdata'>
+      <view class='image_view'>
+        <image src='{{src_zbj}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>数据慧说</view>
+      </view>
+    </view>
+
+  </view>
+  <view class='view3' wx:if="{{showDataTV}}">
+     <view class='left_view' bindtap='goto_cooperative'>
       <view class='image_view'>
         <image src='{{src_hzs}}' class='image_style'></image>
       </view>
@@ -180,17 +192,7 @@
       </view>
       
     </view>
-
-  </view>
-  <view class='view3' wx:if="{{showDataTV}}">
-    <view class='left_view' bindtap='goto_tvlive'>
-      <view class='image_view'>
-        <image src='{{src_zbj}}' class='image_style'></image>
-      </view>
-      <view class='detail'>
-        <view class='detail_text'>221专题</view>
-      </view>
-    </view>
+    
     <view class='right_view' bindtap='goto_dataK'>
      <view class='image_view'>
         <image src='{{src_tv}}' class='image_style'></image>
@@ -217,8 +219,8 @@
     </view>
 
   </view>
-
-  <view class='view4 dataBg_color' bindtap='goto_monthdata'>
+   <image src='{{weekdata}}' class='view221' bindtap='goto_tvlive'></image>
+  <!-- <view class='view4 dataBg_color' bindtap='goto_monthdata'>
     <view class='view4_view'>
       <view class='view2_text_view'>
         <text>数据汇说</text>
@@ -230,7 +232,7 @@
     <view class='view2_img_view'>
       <image src='{{weekdata}}' class='view2_img'></image>
     </view>
-  </view>
+  </view> -->
 
   <view class='view4 moreBg_color' bindtap='goto_more'>
     <view class='view5_view'>

@@ -73,7 +73,7 @@ Page({
           wx.setStorage({
             key: 'inviteCode',
             data: '',
-          })
+          });
           wx.navigateBack({
             delta: 2
           })
@@ -96,8 +96,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
     console.log(app.globalData.inviteCode+"00000")
+    var that=this;
     wx.getUserInfo({
       success: function (res) {
         that.setData({
@@ -132,15 +132,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that=this;
+    var that = this;
     wx.getStorage({
       key: 'inviteCode',
       success: function (res) {
         that.setData({
-          inviteCode: res.data
+        inviteCode: (res.data == null || res.data == '' || res.data == undefined) ? '暂无数据' : res.data
         })
       },
     })
+
+  
   },
 
   /**

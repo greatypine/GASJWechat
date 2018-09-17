@@ -6,11 +6,10 @@
 
 
 var config = {
-  // testpath: "https://data.guoanshequ.top/daqWeb/"
-  // testpath: "https://data.guoanshequ.com/daqWeb/"
-     testpath: "https://www.guoanshuju.com/daqWeb/"
+  testpath: "https://www.guoanshuju.com/daqWeb/"
+  // testpath: "https://daqweb.guoanshequ.top/daqWeb/"
   // testpath: "http://10.16.31.242/daqWeb/"
-  // testpath: "http://10.16.31.103:8080/daqWeb/"
+  // testpath: "http://10.16.31.102:8082/daqWeb/"
 };
 
 module.exports = config 

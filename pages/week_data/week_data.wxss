@@ -67,3 +67,19 @@ background-color: #67B9DC;
 justify-content:center;
 align-items:center;
 }
+.zhezhao{
+   /* background-color: rgba(0, 0, 0, 0.3); */
+   position:absolute;
+    background:rgba(0, 0, 0, 0.5);
+    width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 6rpx;
+
+}
+.zhezhao1{
+   position:relative;
+    cursor:pointer;
+
+}

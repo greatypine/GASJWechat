@@ -13,16 +13,16 @@ Page({
     src_user: "../images/app_img3.png",
     src_message: "../images/message_img.png",
     src_input:"../images/input_bg.png",
-    src_store: "../images/store_img.png",
+    src_store: "../images/store_img.png", 
     src_men: "../images/men_img.png",
     src_thing: "../images/tv_img.png",
     src_tv: "../images/thing_img.png",
-    weekdata: "../images/weekdata_img.png",
+    weekdata: "../images/221bg_new.jpg",
     moreData: "../images/icon2.png",
     notice: "../images/icon3.png",
     service_img: "../images/icon_bg.png",
     src_hzs:"../images/hzs.jpeg",
-    src_zbj:"../images/221bg.jpg",
+    src_zbj:"../images/weekdata_img_new.png",
     showModalStatus: app.globalData.login_statu,
     showLoginView: false,
     showWxView: false,
@@ -678,7 +678,7 @@ Page({
             wx.setStorage({
               key: 'inviteCode',
               data: jsonData.data.inviteCode,
-            })
+            });
             app.globalData.isLogin="islogin";
             app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 
@@ -898,8 +898,8 @@ Page({
           app.globalData.inviteCode = employee.inviteCode;
           wx.setStorage({
             key: 'inviteCode',
-            data: jsonData.data.inviteCode,
-          })
+            data: employee.inviteCode,
+          });
           app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (employee.mobilephone == null || employee.mobilephone == '' || employee.mobilephone == undefined) ? '--' : employee.mobilephone;
           if (usergroup.code != null && usergroup.code != '' && usergroup.code != undefined) {
@@ -1105,7 +1105,7 @@ Page({
           wx.setStorage({
             key: 'inviteCode',
             data: jsonData.data.inviteCode,
-          })
+          });
           app.globalData.isLogin = "islogin";
           app.globalData.employee_phone = (jsonData.data.mobilephone == null || jsonData.data.mobilephone == '' || jsonData.data.mobilephone == undefined) ? '--' : jsonData.data.mobilephone;
 

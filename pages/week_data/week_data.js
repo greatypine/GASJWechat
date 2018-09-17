@@ -9,7 +9,9 @@ Page({
     network_img: "../images/icon7.png",
     store_img: "../images/icon4.png",
     bigdata_img: "../images/icon6.png",
-    store_bg: "../images/store_bg.png"
+    store_bg: "../images/store_bg.png",
+    youyi_product_bg: "../images/youyi_product.png",
+    guoanxia_bg: "../images/guoanxia_bg.png"
   },
 
   /**
@@ -147,4 +149,64 @@ Page({
     }
 
   },
+  //国安优易产品简报
+  goto_view5: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB') {
+        wx.navigateTo({
+          url: '../youyi_product/youyi_product'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
+  },
+  //国安侠工作负荷分析
+  goto_view6: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
+        wx.navigateTo({
+          url: '../gax_working_load/gax_working_load'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
+  }
 })

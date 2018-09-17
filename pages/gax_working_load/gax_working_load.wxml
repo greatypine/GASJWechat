@@ -1,0 +1,4 @@
+<!--pages/gax_working_load/gax_working_load.wxml-->
+<web-view src='{{url}}'></web-view>
+
+

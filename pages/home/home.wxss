@@ -574,6 +574,18 @@ radio {
   display: flex;
   margin-bottom: 30rpx;
 }
+.view221 {
+  height: 300rpx;
+  width: 90%;
+  box-sizing: border-box;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 6rpx;
+  margin-top: 30rpx;
+  
+  display: flex;
+  margin-bottom: 30rpx;
+}
 
 .dataBg_color {
   background: #ebeff2;
