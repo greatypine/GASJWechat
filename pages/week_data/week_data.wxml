@@ -12,7 +12,7 @@
       <view class='image_view storeBg_img'>
         <image src='{{store_bg}}' class='image_style'></image>
       </view>
-      <view class='detail'>
+      <view class='detail'> 
         <view class='detail_text'>门店租赁统计</view>
       </view>
     </view>
@@ -36,10 +36,31 @@
         <view class='detail_text'>国安侠工作量分析</view>
       </view>
     </view>
-
-
-
   </view>
+  <view class='box'>
+
+    <view class='left_view' bindtap='goto_view7'>
+      <view class='image_view bgData_color'>
+        <image src='{{user_analysis_bg}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>用户简报</view>
+      </view>
+    </view>
+    <view class='right_view' bindtap='goto_view8'>
+      <view class='image_view storeBg_img'>
+        <image src='{{member_info_bg}}' class='image_style'></image>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>社员简报</view>
+      </view>
+    </view>
+  </view>
+  
+
+
+
+  
   <view class='box'>
     <view class='left_view zhezhao1' bindtap='goto_view3'>
       <view class='zhezhao'>

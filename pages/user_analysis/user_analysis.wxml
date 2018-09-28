@@ -1,0 +1,2 @@
+<!--pages/user_analysis/user_analysis.wxml-->
+<web-view src='{{url}}'></web-view>

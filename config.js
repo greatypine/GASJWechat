@@ -6,8 +6,8 @@
 
 
 var config = {
-  testpath: "https://www.guoanshuju.com/daqWeb/"
-  // testpath: "https://daqweb.guoanshequ.top/daqWeb/"
+  // testpath: "https://www.guoanshuju.com/daqWeb/"
+  testpath: "https://daqweb.guoanshequ.top/daqWeb/"
   // testpath: "http://10.16.31.242/daqWeb/"
   // testpath: "http://10.16.31.102:8082/daqWeb/"
 };

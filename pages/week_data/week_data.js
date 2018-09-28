@@ -11,10 +11,12 @@ Page({
     bigdata_img: "../images/icon6.png",
     store_bg: "../images/store_bg.png",
     youyi_product_bg: "../images/youyi_product.png",
-    guoanxia_bg: "../images/guoanxia_bg.png"
+    guoanxia_bg: "../images/guoanxia_bg.png",
+    member_info_bg: "../images/menber_bg.png",
+    user_analysis_bg: "../images/user_analysis_bg.png"
   },
 
-  /**
+  /** 
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
@@ -186,6 +188,66 @@ Page({
       if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
         wx.navigateTo({
           url: '../gax_working_load/gax_working_load'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
+  },
+  //用户简报
+  goto_view7: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
+        wx.navigateTo({
+          url: '../user_analysis/user_analysis'
+        })
+
+      } else {
+        wx.showToast({
+          title: '您没有此权限...',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+
+      }
+
+    } else {
+      wx.showToast({
+        title: '您没有此权限...',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+
+    }
+
+  },
+  //社员简报
+  goto_view8: function () {
+    if (app.globalData.zw_code != null && app.globalData.zw_code != '' && app.globalData.zw_code != undefined) {
+
+      if (app.globalData.zw_code.slice(0, 2) == 'ZB' || app.globalData.zw_code.slice(0, 2) == 'CS') {
+        wx.navigateTo({
+          url: '../member_info/member_info'
         })
 
       } else {

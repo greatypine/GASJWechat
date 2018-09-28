@@ -23,7 +23,9 @@
     "pages/cooperative/cooperative",
     "pages/store_lease/store_lease",
     "pages/youyi_product/youyi_product",
-    "pages/gax_working_load/gax_working_load"
+    "pages/gax_working_load/gax_working_load",
+    "pages/member_info/member_info",
+    "pages/user_analysis/user_analysis"
   ],
   "window": {
     "backgroundTextStyle": "light",

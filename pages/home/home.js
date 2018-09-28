@@ -1280,7 +1280,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        console.log(JSON.stringify(res.data) +"getMessageCount");
+        console.log(JSON.stringify(res.data) +"getMessageCount"); 
         //  debugger
         if (res.data.result == true) {
           var jsonData = res.data.data;
